@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMCApp.Maui.Views.MainPage"
+             Title="Indice de masa coorporal">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16"
+            Spacing="24">
+            <Border
+                Stroke="LightGrey"
+                StrokeThickness="2">
+                <VerticalStackLayout
+                    Padding="16"
+                    Spacing="4">
+                    <Label
+                        Text="Proporcione el peso en kilogramos:"
+                    />
+                    <Entry
+                        BackgroundColor="Black"
+                        Keyboard="Numeric"
+                        x:Name="PesoLabel"/>
+                    <Label
+                        Text="Proporcione la estatura en metros:"/>
+                    <Entry
+                        BackgroundColor="Black"
+                        Keyboard="Numeric"
+                        x:Name="EstaturaLabel"/>
+                </VerticalStackLayout>
+            </Border>
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Spacing="16">
+                <Button
+                    BackgroundColor="Aquamarine"
+                    Text="Calcular"
+                    MinimumWidthRequest="80"
+                    Clicked="OnCalcularButtonClicked"/>
+                <Button
+                    BackgroundColor="Aquamarine"
+                    Text="Limpiar"
+                    MinimumWidthRequest="80"
+                    Clicked="OnLimpiarButtonClicked"/>
+            </HorizontalStackLayout>
+            <Border
+                Stroke="LightGrey"
+                StrokeThickness="2">
+                <VerticalStackLayout
+                Padding="16"
+                Spacing="4">
+                    <Label
+                        Text="El indice de masa cooporal de la persona es: "/>
+                    <Label
+                     
+                        Text="23.4567"
+                        HorizontalOptions="Center"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        x:Name="ImcLabel"/>
+                    <Label
+                        Text="La situcion nutricional de la persona es: "/>
+                    <Label
+                        Text="Peso normal"
+                        HorizontalOptions="Center"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        x:Name="SituacionNuticionalLabel"/>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+    
+</ContentPage>
