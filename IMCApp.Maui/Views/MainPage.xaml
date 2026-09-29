@@ -10,23 +10,39 @@
             <Border
                 Stroke="LightGrey"
                 StrokeThickness="2">
-                <VerticalStackLayout
+                <Grid
+                    RowDefinitions="*,*"
+                    ColumnDefinitions="Auto,*"
+                    RowSpacing="8"
+                    ColumnSpacing="4"
                     Padding="16"
-                    Spacing="4">
+                    >
                     <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        VerticalOptions="Center"
                         Text="Proporcione el peso en kilogramos:"
                     />
                     <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
                         BackgroundColor="Black"
                         Keyboard="Numeric"
+                        ClearButtonVisibility="WhileEditing"
                         x:Name="PesoLabel"/>
                     <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalOptions="Center"
                         Text="Proporcione la estatura en metros:"/>
                     <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
                         BackgroundColor="Black"
                         Keyboard="Numeric"
+                        ClearButtonVisibility="WhileEditing"
                         x:Name="EstaturaLabel"/>
-                </VerticalStackLayout>
+                </Grid> 
             </Border>
             <HorizontalStackLayout
                 HorizontalOptions="Center"
