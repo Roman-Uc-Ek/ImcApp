@@ -1,4 +1,6 @@
-﻿using IMCApp.Maui.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using IMCApp.Maui.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,95 +9,31 @@ using System.Windows.Input;
 
 namespace IMCApp.Maui.ViewModels
 {
-    public class MainViewModels : INotifyPropertyChanged
+    public partial class MainViewModels :  ObservableObject
     {
+        [ObservableProperty]
         private string _peso;
-        public string Peso
-        {
-            get => _peso;
-            set
-            {
-                if (_peso != value)
-                {
-                    _peso = value;
-                    OnPropertyChanged(nameof(Peso));
-                }
-            }
-        }
-
-        private string _estatura;
-        public string Estatura
-        {
-            get => _estatura;
-            set
-            {
-                if (_estatura != value)
-                {
-                    _estatura = value;
-                    OnPropertyChanged(nameof(Estatura));
-                }
-            }
-        }
-        private string _imc;
-        public string IMC
-        {
-            get => _imc;
-            set
-            {
-                if (_imc != value)
-                {
-                    _imc = value;
-                    OnPropertyChanged(nameof(IMC));
-                }
-            }
-        }
-
+        [ObservableProperty]
         private string _situacionNutricional;
-        public string SituacionNutricional
-        {
-            get=> _situacionNutricional;
-            set
-            {
-                if (_situacionNutricional != value)
-                {
-                    _situacionNutricional = value;
-                    OnPropertyChanged(nameof(SituacionNutricional));
-                }
-            }
-        }
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null) 
-            {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-
-        }
-        public ICommand CalcularCommand {  get; private set; }
-        public ICommand LimpiarCommand { get; private set; }
-
+        [ObservableProperty]
+        private string _estatura;
+        [ObservableProperty]
+        private string _imc;
+        
         public MainViewModels()
         {
-            LimpiarValores();
-            CalcularCommand = new Command (Calcular);
-            LimpiarCommand = new Command(LimpiarValores);
+            Limpiar();
+           
         }
-        /*public MainViewModels()
-        {
-            Peso = string.Empty;
-            Estatura = string.Empty;
-            IMC = string.Empty;
-            SituacionNutricional = string.Empty;
-        }*/
-        private void LimpiarValores()
+        [RelayCommand]
+        private void Limpiar()
         {
             Peso = string.Empty;
             Estatura= string.Empty;
-            IMC = string.Empty;
+            Imc = string.Empty;
             SituacionNutricional = string.Empty;
         }
-
+        [RelayCommand]
         public void Calcular()
         {
             decimal peso;
@@ -108,7 +46,7 @@ namespace IMCApp.Maui.ViewModels
             {
                 decimal imc = CalculadoradeIMC
                     .IndiceDeMasaCorporal(peso, estatura);
-                IMC = imc.ToString("F4");
+                Imc = imc.ToString("F4");
                 SituacionNutricional= CalculadoradeIMC.SituacionNutricional(imc);
             }
         }
