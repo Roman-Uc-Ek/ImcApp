@@ -24,26 +24,26 @@
                         Text="Proporcione el peso en kilogramos:"
                     />
                     <Entry
-                        Grid.Row="1"
+                        Grid.Row="0"
                         Grid.Column="1"
-                        BackgroundColor="Black"
-                        Text="{Binding Path=Peso}"
+                        BackgroundColor="White"
+                        Text="{Binding Peso}"
                         Keyboard="Numeric"
                         ClearButtonVisibility="WhileEditing"
-                        />
+                        TextColor="Black"/>
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
                         VerticalOptions="Center"
-                        Text="Proporcione la estatura en metros:"/>
+                        Text="Proporcione la altura en metros: "/>
                     <Entry
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="1"
-                        BackgroundColor="Black"
-                        Text="{Binding Path=Estatura}"
+                        BackgroundColor="White"
+                        Text="{Binding Estatura}"
                         Keyboard="Numeric"
                         ClearButtonVisibility="WhileEditing"
-                       />
+                       TextColor="Black"/>
                 </Grid> 
             </Border>
             <HorizontalStackLayout
@@ -72,7 +72,7 @@
                         Text="El indice de masa cooporal de la persona es: "/>
                     <Label
                      
-                        Text="{Binding Path=IMC}"
+                        Text="{Binding Path=Imc}"
                         HorizontalOptions="Center"
                         FontSize="Medium"
                         FontAttributes="Bold"
@@ -84,7 +84,7 @@
                         HorizontalOptions="Center"
                         FontSize="Medium"
                         FontAttributes="Bold"
-                        Text="{Binding Path= SitucacionNutricional}"/>
+                        Text="{Binding Path= SituacionNutricional}"/>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>
